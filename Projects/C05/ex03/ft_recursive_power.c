@@ -6,11 +6,9 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/22 17:12:50 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/09/24 20:24:16 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/09/28 16:15:50 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int		ft_recursive_power(int nb, int power)
 {
@@ -20,6 +18,10 @@ int		ft_recursive_power(int nb, int power)
 	if ((nb == 0 && power == 0) || power == 0)
 	{
 		return (1);
+	}
+	else if (power < 0)
+	{
+		return (0);
 	}
 	else
 	{

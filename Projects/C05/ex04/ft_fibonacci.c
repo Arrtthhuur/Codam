@@ -6,11 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/24 20:33:29 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/09/24 20:47:14 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/09/28 16:26:13 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_fibonnaci(int index)
+int		ft_fibonacci(int index)
 {
 	if (index < 0)
 	{
@@ -26,6 +26,6 @@ int		ft_fibonnaci(int index)
 	}
 	else
 	{
-		return (ft_fibonnaci(index - 1) + ft_fibonnaci(index - 2));
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 	}
 }
