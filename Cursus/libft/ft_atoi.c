@@ -6,9 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:38:32 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:39:11 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 19:36:55 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_atoi(const char *str)
 {

@@ -6,9 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:37:54 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:38:07 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 20:28:35 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {

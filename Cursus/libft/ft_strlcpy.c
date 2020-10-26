@@ -6,32 +6,28 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:26:07 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 15:26:08 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:24:21 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t
+	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int i;
+	size_t	i;
 
 	i = 0;
 	if (size > 0)
 	{
-		while (*(src + i) != '\0')
+		while (src[i] && i < (size - 1))
 		{
-			if (i == size)
-			{
-				i--;
-				break ;
-			}
-			*(dest + i) = *(src + i);
+			dst[i] = src[i];
 			i++;
 		}
+		dst[i] = 0;
 	}
-	*(dest + i) = '\0';
-	while (*(src + i) != '\0')
-	{
+	while (src[i])
 		i++;
-	}
 	return (i);
 }

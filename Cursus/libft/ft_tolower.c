@@ -6,12 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 14:20:05 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 14:53:37 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 20:24:07 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 int		ft_tolower(int c)
 {
@@ -20,18 +19,4 @@ int		ft_tolower(int c)
 		c += 32;
 	}
 	return (c);
-}
-
-int		main (void) 
-{
-	int i = 0;
-	char c;
-	char str[] = "Tutorials Point";
-
-	while (str[i]) 
-	{
-		putchar (ft_tolower(str[i]));
-		i++;
-	}
-	return (0);
 }

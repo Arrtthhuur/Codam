@@ -6,48 +6,36 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/22 13:32:16 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 15:27:53 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:22:40 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				ft_strlen(char *str);
+#include <stdlib.h>
+#include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t
+	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int s_len;
-	unsigned int d_len;
-	unsigned int i;
+	size_t	i;
+	size_t	j;
+	size_t	dest_length;
+	size_t	src_length;
 
+	src_length = ft_strlen(src);
+	dest_length = ft_strlen(dst);
+	j = dest_length;
 	i = 0;
-	s_len = 0;
-	d_len = 0;
-	if (size == 0)
+	if (dest_length < size - 1 && size > 0)
 	{
-		return (s_len);
+		while (src[i] && dest_length + i < size - 1)
+		{
+			dst[j] = src[i];
+			j++;
+			i++;
+		}
+		dst[j] = 0;
 	}
-	s_len = ft_strlen(src);
-	d_len = ft_strlen(dest);
-	if (size <= d_len)
-		return (size + s_len);
-	i = 0;
-	while (size && (size - 1 - d_len) && src[i])
-	{
-		dest[d_len + i] = src[i];
-		i++;
-		size--;
-	}
-	dest[d_len + i] = '\0';
-	return (s_len + d_len);
-}
-
-int				ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	if (dest_length >= size)
+		dest_length = size;
+	return (dest_length + src_length);
 }

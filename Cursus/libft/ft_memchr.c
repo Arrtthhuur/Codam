@@ -6,9 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:37:30 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:37:34 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:11:01 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

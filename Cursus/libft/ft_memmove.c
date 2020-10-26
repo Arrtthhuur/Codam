@@ -6,11 +6,13 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:35:51 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:36:39 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:20:30 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memmove(void *dst, const void *src, size_t len)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int	i;
 

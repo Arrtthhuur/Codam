@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_toupper.c                                       :+:    :+:            */
+/*   main_isdigit.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:17:03 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 20:30:06 by abeznik       ########   odam.nl         */
+/*   Created: 2020/10/26 19:56:22 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/10/26 20:04:14 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <stdio.h>
+#include <ctype.h>
+#include "libft.h"
+
+int		main(void)
 {
-	if (c >= 'a' && c <= 'z')
-	{
-		c -= 32;
-	}
-	return (c);
+	char c;
+
+	c = '5';
+	printf("Result when numeric character is passed: %d", ft_isdigit(c));
+	c = 'a';
+	printf("\nResult when non-numeric character is passed: %d", ft_isdigit(c));
+	return (0);
 }

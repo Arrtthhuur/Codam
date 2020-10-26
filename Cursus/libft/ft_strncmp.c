@@ -6,23 +6,33 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:27:06 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:19:38 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:18:01 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int i;
+#include "libft.h"
 
-	i = 1;
-	while (i <= n && *s1 && (*s1 == *s2))
+static int
+	cmp_char(char c1, char c2)
+{
+	if ((unsigned char)c1 != (unsigned char)c2)
+		return ((unsigned char)c1 - (unsigned char)c2);
+	return (0);
+}
+
+int
+	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+
+	i = 0;
+	while (s1[i] && s2[i] && i < n)
 	{
-		s1++;
-		s2++;
+		if (cmp_char(s1[i], s2[i]))
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	if (n == 0)
-		return (0);
-	else
-		return (*s1 - *s2);
+	if (i < n)
+		return (cmp_char(s1[i], s2[i]));
+	return (0);
 }

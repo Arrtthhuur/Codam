@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_toupper.c                                       :+:    :+:            */
+/*   main_toupper.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:17:03 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 20:30:06 by abeznik       ########   odam.nl         */
+/*   Created: 2020/10/26 20:23:02 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/10/26 20:23:10 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <stdio.h>
+#include <ctype.h>
+
+int		main (void) 
 {
-	if (c >= 'a' && c <= 'z')
+	int i = 0;
+	char c;
+	char str[] = "Tutorials Point";
+
+	while (str[i]) 
 	{
-		c -= 32;
+		putchar (ft_toupper(str[i]));
+		i++;
 	}
-	return (c);
+	return (0);
 }

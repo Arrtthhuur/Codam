@@ -6,9 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:14:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 16:14:29 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 20:29:56 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
