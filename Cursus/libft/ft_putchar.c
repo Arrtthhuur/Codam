@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   ft_putchar.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:14:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/31 16:59:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/10/31 17:13:30 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/10/31 17:35:44 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int		ft_isalpha(int c)
+void		ft_putchar(char c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	write(1, &c, 1);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   main_substr.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:14:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/31 16:59:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/01 11:08:17 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/01 11:19:46 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		ft_isalpha(int c)
+int		main(void)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	char	s[] = "substr function implement";
+	int		start;
+	int		len;
+
+	start = 1;
+	len = 5;
+	char *sub = ft_substr(s, start, len);
+	printf("%s\n", sub);
+	return (0);
 }

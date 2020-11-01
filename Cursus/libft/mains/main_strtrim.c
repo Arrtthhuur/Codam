@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   main_strtrim.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:14:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/31 16:59:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/01 11:50:22 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/01 12:01:32 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		ft_isalpha(int c)
+int		main(void)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	char	s1[] = "bonjour ca va bien";
+	char	set[] = "ca va";
+	char	*res;
+
+	res = ft_strtrim(s1, set);
+	printf("%s", res);
+	return (0);
 }

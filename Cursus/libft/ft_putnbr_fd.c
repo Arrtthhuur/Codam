@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 15:26:07 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:56:20 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/01 12:06:21 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/01 12:12:03 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+static void	recursive(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (size > 0)
+	if (n < 0)
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
+		ft_putchar_fd('-', fd);
+		recursive(n * -1, fd);
 	}
-	while (src[i])
-		i++;
-	return (i);
+	else if (n < 10)
+	{
+		n += '0';
+		ft_putchar_fd(n, fd);
+	}
+	else
+	{
+		recursive(n / 10, fd);
+		n = n % 10 + '0';
+		ft_putchar_fd(n, fd);
+	}
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		recursive(147483648, fd);
+	}
+	else
+	{
+		recursive(n, fd);
+	}
 }

@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   main_isalpha.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 14:14:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/31 16:59:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/10/26 19:55:52 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/01 11:21:02 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		ft_isalpha(int c)
+int		main(void)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	char str[] = "12abc12";
+
+	int alpha;
+	int nb;
+	int i;
+
+	alpha = 0;
+	nb = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_isalpha(str[i]) != 0)
+			alpha++;
+		i++;
+	}
+	printf("Alpha = %d, Digits = %d\n", alpha, nb);
+	return (0);
 }

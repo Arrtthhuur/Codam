@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:57:43 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:25:58 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/01 12:24:46 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,27 @@ int				ft_isascii(int c);
 int				ft_isalpha(int c);
 
 int				ft_isalnum(int c);
+
+char			*ft_strdup(const char *s1);
+
+void			*ft_calloc(size_t count, size_t size);
+
+void			ft_putchar_fd(char c, int fd);
+
+void			ft_putstr_fd(char *s, int fd);
+
+void			ft_putstr(char *str);
+
+void			ft_putchar(char c);
+
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+char			*ft_strjoin(char const *s1, char const *s2);
+
+char			*ft_strtrim(char const *s1, char const *set);
+
+void			ft_putnbr_fd(int n, int fd);
+
+void			ft_putendl_fd(char *s, int fd);
 
 #endif

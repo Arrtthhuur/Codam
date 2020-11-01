@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 15:26:07 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:56:20 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/01 11:21:29 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/01 11:22:08 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
 	size_t	i;
+	size_t	j;
 
+	str = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	if (size > 0)
+	j = 0;
+	while (s1[i])
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
-	}
-	while (src[i])
+		str[j++] = s1[i];
 		i++;
-	return (i);
+	}
+	i = 0;
+	while (s2[i])
+	{
+		str[j++] = s2[i];
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }

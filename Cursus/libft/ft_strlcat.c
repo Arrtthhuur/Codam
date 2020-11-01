@@ -6,11 +6,10 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/22 13:32:16 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:22:40 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/10/26 21:43:12 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 size_t
