@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr.c                                        :+:    :+:            */
+/*   main_itoa.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/31 17:12:35 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 11:19:13 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/02 11:48:25 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/02 12:22:09 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include <stdio.h>
 
-void		ft_putchar(char c);
+char		*ft_itoa(int n);
 
-void	ft_putstr(char *str)
+int		ft_atoi(const char *str);
+
+int		main(int argc, char *argv[])
 {
-	int i;
+	char	*res;
+	int		i;
+	int		arg;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (argc == 1)
 	{
-		ft_putchar(str[i]);
-		i++;
+		printf("No arg entered");
 	}
+	else
+	{
+		while (i < argc)
+		{
+			arg = ft_atoi(argv[i]);
+			res = ft_itoa(arg);
+			printf("Result = %s\n", res);
+			i++;
+		}
+	}
+	return (0);
 }
