@@ -6,20 +6,13 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 10:51:04 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 11:34:28 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/05 16:37:08 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
+#include "libft.h"
 
-void		ft_putstr(const char *str);
-
-void		ft_putchar(const char c);
-
-int			ft_atoi(const char *str);
-
-int			main(int argc, const char *argv[])
+int			main(int argc, char *argv[])
 {
 	int		i;
 	int		res;

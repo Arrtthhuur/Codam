@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/26 15:34:56 by abeznik       #+#    #+#                  #
-#    Updated: 2020/11/02 12:17:15 by abeznik       ########   odam.nl          #
+#    Updated: 2020/11/05 16:45:56 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ SRCS	=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_substr.c  ft_strjoin.c \
 			ft_memcpy.c ft_strchr.c  ft_strlcpy.c ft_calloc.c ft_putnbr_fd.c \
 			ft_strnstr.c ft_tolower.c ft_bzero.c  ft_isascii.c ft_memccpy.c \
 			ft_memmove.c ft_strlen.c  ft_strrchr.c ft_strdup.c ft_putendl_fd.c \
-			ft_toupper.c  ft_isdigit.c ft_memchr.c  ft_memset.c \
+			ft_toupper.c  ft_isdigit.c ft_memchr.c  ft_memset.c ft_abs_bonus.c \
 			ft_putchar.c ft_putstr.c ft_putchar_fd.c ft_putstr_fd.c
 
 MAINS	=	mains/main_isalpha.c mains/main_isalnum.c mains/main_isdigit.c \
 			mains/main_isprint.c mains/main_putstr.c mains/main_substr.c \
 			mains/main_tolower.c mains/main_toupper.c mains/main_strjoin.c \
 			mains/main_strtrim.c mains/main_putnbr_fd.c mains/main_atoi.c \
-			mains/main_putendl_fd.c mains/main_calloc.c
+			mains/main_putendl_fd.c mains/main_calloc.c mains/main_itoa.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -55,14 +55,18 @@ putnbr:		ft_putnbr_fd.o mains/main_putnbr_fd.o ft_putchar_fd.o
 putendl:	ft_putendl_fd.o mains/main_putendl_fd.o ft_strlen.o
 	$(CC) -o putendl.out ft_putendl_fd.o mains/main_putendl_fd.o ft_strlen.o
 
-calloc:		ft_calloc.o mains/main_calloc.o bzero.o
+calloc:		ft_calloc.o mains/main_calloc.o ft_bzero.o
 	$(CC) -o calloc.out ft_calloc.o mains/main_calloc.o bzero.o
 
-atoi:		ft_atoi.o mains/main_atoi.o
-	$(CC) -o atoi.out ft_atoi.o mains/main_atoi.o
+atoi:		ft_atoi.o mains/main_atoi.o ft_putstr.o ft_putchar.o
+	$(CC) -o atoi.out ft_atoi.o mains/main_atoi.o ft_putstr.o ft_putchar.o
 	
-itoa:		ft_itoa.o mains/main_itoa.o
-	$(CC) -o itoa.out ft_itoa.o mains/main_itoa.o
+itoa:		ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o
+	$(CC) -o itoa.out ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o
+
+isdigit:	ft_isdigit.o mains/main_isdigit.o
+	$(CC) -o isdigit.out ft_isdigit.o mains/main_isdigit.o
+
 all:		$(NAME)
 
 $(NAME): 	$(OBJS)

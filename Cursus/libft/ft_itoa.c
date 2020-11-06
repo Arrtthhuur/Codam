@@ -6,40 +6,53 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 11:48:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 12:30:22 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/05 16:39:08 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size);
-
-static int	ft_abs(int nb)
+static size_t	ft_count_digit(long n)
 {
-	if (nb < 0)
-		return (nb * -1);
+	size_t i;
+
+	i = 1;
+	if (n < 0)
+		n *= -1;
+	while (n >= 10)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
 char		*ft_itoa(int n)
 {
 	char	*str;
-	int		is_neg;
+	int		neg;
 	size_t	len;
 
-	is_neg = (n < 0);
-	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
+	neg = 0;
+	if (n < 0)
+		neg = 1;
+	len = ft_count_digit(n);
+	printf("len = %ld\n", len);
+	str = ft_calloc(11 + neg, len);
+	if (!str)
 		return (NULL);
 	if (n == 0)
 		str[0] = '0';
-	len = 0;
-	while (n != 0)
+	if (neg == 1)
 	{
-		str[len] = '0' + ft_abs(n % 10);
-		n = n / 10;
-		len++;
+		n = -n;
+		str[0] = '-';
 	}
-	if (is_neg)
-		str[len] = '-';
+	while (len > 0)
+	{
+		str[len + neg - 1] = ft_abs(n % 10) + '0';
+		n /= 10;
+		len--;
+	}
 	return (str);
 }

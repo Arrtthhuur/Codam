@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:57:43 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 12:16:38 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/05 16:37:32 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <stdio.h>
 
 int				ft_atoi(const char *str);
 
@@ -84,5 +86,7 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putendl_fd(char *s, int fd);
 
 char			*ft_itoa(int n);
+
+int				ft_abs(int nb);
 
 #endif
