@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   main_memchr.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:22:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/07 11:42:21 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/07 17:00:54 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/07 17:09:24 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+int		main(void)
 {
-	ft_memset(s, 0, n);
+	const char	str[] = "Bonjour ca va bien";
+	const char	c = 'a';
+	char		*ret;
+
+	ret = ft_memchr(str, c, strlen(str));
+	printf("String after |%c| is - |%s|\n", c, ret);
+	return (0);
 }

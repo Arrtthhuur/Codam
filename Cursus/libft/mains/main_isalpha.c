@@ -6,20 +6,18 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 19:55:52 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/01 11:21:02 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 13:01:41 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		main(void)
 {
-	char str[] = "12abc12";
-
-	int alpha;
-	int nb;
-	int i;
+	char	str[] = "12abc12";
+	int		alpha;
+	int		nb;
+	int		i;
 
 	alpha = 0;
 	nb = 0;

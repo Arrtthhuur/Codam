@@ -6,19 +6,18 @@
 /*   By: abeznik <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 13:47:55 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:25:48 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 09:04:29 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t
-	ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

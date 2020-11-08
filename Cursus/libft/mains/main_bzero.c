@@ -6,33 +6,27 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 10:36:25 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 10:48:57 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/07 11:57:51 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ibft.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
-int		main(int argc, const char *argv[])
+int		main(void)
 {
-	void	*mem;
+	char	str1[42] = "Bonjour ca va bien et vous";
+	char	str2[42] = "Bonjour ca va bien et vous";
+	int		n;
 
-	alarm(5);
-	if (argc == 1 || !(mem = malloc(sizeof(*mem) * 5)))
-		return (0);
-	if (atoi(argv[1]) == 1)
-	{
-		memset(mem, 'e', 5);
-		ft_bzero(mem, 5);
-		write(1, mem, 5);
-	}
-	else if (atoi(argv[1]) == 2)
-	{
-		memset(mem, 'e', 5);
-		ft_bzero(mem, 0);
-		write(1, mem, 5);
-	}
+	n = 21;
+	ft_bzero(str1, n);
+	bzero(str2, n);
+	write(1, str1, 42);
+	write(1, "\n", 1);
+	write(1, str2, 42);
+	write(1, "\n", 1);
 	return (0);
 }

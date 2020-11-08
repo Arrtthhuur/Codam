@@ -6,13 +6,15 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/05 16:28:32 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/05 16:34:07 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 12:44:04 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_abs(int nb)
+int		ft_abs(int nb)
 {
-    return (nb * -1);
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
 }

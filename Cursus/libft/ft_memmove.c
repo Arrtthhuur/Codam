@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:35:51 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 21:20:30 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/07 16:55:05 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	char	*s;
+	char	*d;
+	size_t	i;
 
-	if (!dst || !src)
-		return (NULL);
-	if (dst > src)
+	s = (char*)src;
+	d = (char*)dst;
+	if (d > s)
 	{
-		i = (int)len - 1;
-		while (i >= 0)
+		while (len > 0)
 		{
-			*(char*)(dst + i) = *(char*)(src + i);
-			i--;
+			len--;
+			d[len] = s[len];
 		}
 	}
 	else
 	{
 		i = 0;
-		while (i < (int)len)
+		while (len > i)
 		{
-			*(char*)(dst + i) = *(char*)(src + i);
+			d[i] = s[i];
 			i++;
 		}
 	}

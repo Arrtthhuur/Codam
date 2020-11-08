@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   main_strlcpy.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:22:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/07 11:42:21 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/08 09:13:22 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/08 09:25:27 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+int		main(void)
 {
-	ft_memset(s, 0, n);
+	char	src[42] = "Bonjour ca va bien";
+	char	dst[42];
+	size_t	size;
+	size_t	len;
+
+	size = 10;
+	len = ft_strlcpy(dst, src, size);
+	printf("dst = %s\ntotal length created = %zu", dst, len);
+	return (0);
 }

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   main_putstr_fd.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:22:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/07 11:42:21 by abeznik       ########   odam.nl         */
+/*   Created: 2020/10/31 17:29:55 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/08 12:26:25 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		main(void)
 {
-	ft_memset(s, 0, n);
+	char str1[] = "bonjour ";
+	char str2[] = "ca va?\n";
+
+	ft_putstr_fd(str1, 1);
+	ft_putstr_fd(str2, 1);
+	return (0);
 }

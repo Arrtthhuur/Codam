@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   main_memccpy.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:22:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/07 11:42:21 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/07 12:12:10 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/07 16:35:39 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+int		main(void)
 {
-	ft_memset(s, 0, n);
+	char	buffer[42];
+	char	msg[42] = "Copy this: not this";
+
+	ft_memccpy(buffer, msg, ':', 80);
+	printf("%s\n", buffer);
+	return (0);
 }
