@@ -6,33 +6,31 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 11:48:25 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/05 16:36:53 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 19:33:03 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int argc, char *argv[])
+int		main(void)
 {
-	char	*res;
 	int		i;
-	int		arg;
+	char	*ret;
 
-	i = 1;
-	if (argc == 1)
-	{
-		printf("No arg entered\n");
-	}
-	else
-	{
-		while (i < argc)
-		{
-			arg = ft_atoi(argv[i]);
-			printf("Input = %s\n", argv[i]);
-			res = ft_itoa(arg);
-			printf("Result = %s\n", res);
-			i++;
-		}
-	}
-	return (0);
+	i = 5;
+	ret = ft_itoa(i);
+	printf("\nTest 1\n");
+	printf("Before itoa, n = %d\nAfter itoa, n = %s\n", i, ret);
+	i = -5;
+	ret = ft_itoa(i);
+	printf("\nTest 2\n");
+	printf("Before itoa, n = %d\nAfter itoa, n = %s\n", i, ret);
+	printf("\nTest 3\n");
+	i = -2147483648LL;
+	ret = ft_itoa(i);
+	printf("Before itoa, n = %d\nAfter itoa, n = %s\n", i, ret);
+	printf("\nTest 4\n");
+	i = 2147483647;
+	ret = ft_itoa(i);
+	printf("Before itoa, n = %d\nAfter itoa, n = %s\n", i, ret);
 }

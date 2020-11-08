@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/26 15:34:56 by abeznik       #+#    #+#                  #
-#    Updated: 2020/11/08 12:52:01 by abeznik       ########   odam.nl          #
+#    Updated: 2020/11/08 19:10:55 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS	=	ft_memset.c $\
 			ft_strjoin.c $\
 			ft_strtrim.c $\
 			ft_itoa.c $\
+			ft_strmapi.c $\
 			ft_putchar_fd.c $\
 			ft_putstr_fd.c $\
 			ft_putendl_fd.c $\
@@ -138,7 +139,7 @@ atoi:		ft_atoi.o mains/main_atoi.o ft_putstr.o ft_putchar.o
 	$(CC) -o atoi.out ft_atoi.o mains/main_atoi.o ft_putstr.o ft_putchar.o
 
 isalpha:		ft_isalpha.o mains/main_isalpha.o
-	$(CC) -o alpha ft_isalpha.o mains/main_isalpha.o
+	$(CC) -o isalpha.out ft_isalpha.o mains/main_isalpha.o
 
 isdigit:	ft_isdigit.o mains/main_isdigit.o
 	$(CC) -o isdigit.out ft_isdigit.o mains/main_isdigit.o
@@ -150,10 +151,10 @@ isascii:	ft_isascii.o mains/main_isascii.o
 	$(CC) -o isascii.out ft_isascii.o mains/main_isascii.o
 
 isprint:	ft_isprint.o mains/main_isprint.o
-	$(CC) -o ft_isprint.o mains/main_isprint.o
+	$(CC) -o isprint.out ft_isprint.o mains/main_isprint.o
 
 toupper:	ft_toupper.o mains/main_toupper.o
-	$(CC) -o ft_toupper.o mains/main_toupper
+	$(CC) -o toupper.out ft_toupper.o mains/main_toupper
 
 tolower:	ft_tolower.o mains/main_tolower.o
 	$(CC) -o tolower.out ft_tolower.o mains/main_tolower.o
@@ -165,16 +166,16 @@ strdup:		ft_strdup.o mains/main_strdup.o
 	$(CC) -o strdup.out ft_strdup.o mains/main_strdup.o
 
 substr:		ft_substr.o mains/main_substr.o
-	$(CC) -o sub.out ft_substr.o mains/main_substr.o
+	$(CC) -o substr.out ft_substr.o mains/main_substr.o
 
 strjoin:	ft_strjoin.o mains/main_strjoin.o ft_strlen.o
-	$(CC) -o join.out ft_strjoin.o mains/main_strjoin.o ft_strlen.o
+	$(CC) -o strjoin.out ft_strjoin.o mains/main_strjoin.o ft_strlen.o
 
-strtrim:	ft_strtrim.o mains/main_strtrim.o ft_strlen.o
-	$(CC) -o trim.out ft_strtrim.o mains/main_strtrim.o ft_strlen.o
+strtrim:	ft_strtrim.o mains/main_strtrim.o ft_strlen.o ft_substr.o ft_strchr.o
+	$(CC) -o strtrim.out ft_strtrim.o mains/main_strtrim.o ft_strlen.o ft_substr.o ft_strchr.o
 
-itoa:		ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o
-	$(CC) -o itoa.out ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o
+itoa:		ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o ft_memset.o
+	$(CC) -o itoa.out ft_itoa.o mains/main_itoa.o ft_calloc.o ft_bzero.o ft_atoi.o ft_abs_bonus.o ft_memset.o
 
 putchar_fd:	ft_putchar_fd.o mains/main_putchar_fd.o
 	$(CC) -o putchar_fd.out ft_putchar_fd.o mains/main_putchar_fd.o
@@ -213,6 +214,8 @@ mclean:		clean
 
 oclean:
 	$(RM) *.out
+
+del: fclean mclean oclean 
 
 re:			fclean $(NAME)
 

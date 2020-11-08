@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:57:43 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/08 12:23:23 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 19:06:43 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 
 char			*ft_itoa(int n);
+
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void			ft_putchar_fd(char c, int fd);
 

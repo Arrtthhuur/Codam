@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 11:21:29 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/01 11:22:08 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 17:01:20 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	while (s1[i])
 	{
-		str[j++] = s1[i];
+		str[j] = s1[i];
+		j++;
 		i++;
 	}
 	i = 0;
 	while (s2[i])
 	{
-		str[j++] = s2[i];
+		str[j] = s2[i];
+		j++;
 		i++;
 	}
-	str[j] = 0;
+	str[j] = '\0';
 	return (str);
 }

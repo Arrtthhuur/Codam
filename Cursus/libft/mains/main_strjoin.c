@@ -6,12 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 11:30:50 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/01 11:47:29 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 17:02:44 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		main(void)
 {

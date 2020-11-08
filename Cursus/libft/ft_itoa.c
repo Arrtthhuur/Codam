@@ -6,13 +6,13 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 11:48:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/05 16:39:08 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/08 19:20:54 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_digit(long n)
+static size_t	ft_intlen(long n)
 {
 	size_t i;
 
@@ -27,7 +27,7 @@ static size_t	ft_count_digit(long n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
 	int		neg;
@@ -36,8 +36,7 @@ char		*ft_itoa(int n)
 	neg = 0;
 	if (n < 0)
 		neg = 1;
-	len = ft_count_digit(n);
-	printf("len = %ld\n", len);
+	len = ft_intlen(n);
 	str = ft_calloc(11 + neg, len);
 	if (!str)
 		return (NULL);
