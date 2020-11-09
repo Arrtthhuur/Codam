@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:14:55 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/08 09:59:59 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/09 14:55:09 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strchr(const char *s, int c)
 
 	str = (char*)s;
 	ch = (char)c;
-	if (!str)
-		return (NULL);
+	if (c == '\0' || c < 0 || c > 255)
+		return ((char*)s + ft_strlen(s));
 	i = 0;
 	while (str[i])
 	{
