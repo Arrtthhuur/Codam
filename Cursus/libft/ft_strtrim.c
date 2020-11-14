@@ -6,13 +6,13 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 11:50:54 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/09 10:34:24 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 13:29:24 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_char_in_set(char c, char const *set)
+static int	ft_char_set(char c, char const *set)
 {
 	size_t	i;
 
@@ -20,9 +20,7 @@ static int	ft_char_in_set(char c, char const *set)
 	while (set[i])
 	{
 		if (set[i] == c)
-		{
 			return (1);
-		}
 		i++;
 	}
 	return (0);
@@ -31,22 +29,24 @@ static int	ft_char_in_set(char c, char const *set)
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	size_t	i;
+	char	*s;
 	size_t	start;
 	size_t	end;
 
-	start = 0;
-	while (s1[start] && ft_char_in_set(s1[start], set))
-		start++;
-	end = ft_strlen(s1);
-	while (end > start && ft_char_in_set(s1[end - 1], set))
-		end--;
-	str = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	str = (char *)s1;
+	s = (char *)set;
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (start < end)
-		str[i++] = s1[start++];
-	str[i] = 0;
-	return (str);
+	end = ft_strlen(str);
+	if (end == 0)
+		return (ft_strdup(""));
+	start = 0;
+	end--;
+	while (str[start] && ft_char_set(str[start], s))
+		start++;
+	while (end > 0 && ft_char_set(str[end], s))
+		end--;
+	if (start > end)
+		return (ft_strdup(""));
+	return (ft_substr(str, start, end - start + 1));
 }

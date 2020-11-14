@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr.c                                        :+:    :+:            */
+/*   ft_putstr_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 17:12:35 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/02 11:19:13 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 14:17:42 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-
-void		ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putstr(char *str)
 {
 	int i;
 
 	i = 0;
+	if (!str)
+		return ;
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);

@@ -6,36 +6,41 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:38:32 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/05 16:42:34 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 14:49:49 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+static	int		ft_isspace(char c)
 {
-	int	i;
-	int neg;
-	int nb;
+	if (c == ' ' || c == '\t' || c == '\r' ||
+	c == '\n' || c == '\v' || c == '\f')
+		return (1);
+	return (0);
+}
 
-	if (!str)
-		return (0);
+int				ft_atoi(const char *str)
+{
+	int		i;
+	int		neg;
+	long	nb;
+
 	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (ft_isspace(str[i]))
 		i++;
-	neg = 0;
-	if (str[i] == '-')
-		neg = 1;
+	neg = 1;
 	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg = neg * -1;
 		i++;
+	}
 	nb = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
 		nb = (nb * 10) + (str[i] - '0');
 		i++;
 	}
-	if (neg == 1)
-		nb *= -1;
-	return (nb);
+	return (neg * nb);
 }

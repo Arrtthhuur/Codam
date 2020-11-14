@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:14:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/09 15:02:31 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 10:52:34 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
+	int		len;
+	char	*str;
 
+	str = (char *)s;
 	len = ft_strlen(s);
-	if (c == '\0' || c < 0 || c > 255)
-		return ((char *)s + len);
-	while (len--)
-		if (*(s + len) == c)
-			return ((char *)(s + len));
+	while (len >= 0)
+	{
+		if (str[len] == (char)c)
+			return (str + len);
+		len--;
+	}
 	return (NULL);
 }

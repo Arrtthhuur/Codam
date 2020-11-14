@@ -6,22 +6,22 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:23:02 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/10/26 20:23:10 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 11:32:31 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 #include <ctype.h>
 
-int		main (void) 
+int		main(void)
 {
-	int i = 0;
-	char c;
-	char str[] = "Tutorials Point";
+	int		i;
+	char	str[] = "Bonjour Les Gens";
 
-	while (str[i]) 
+	i = 0;
+	while (str[i])
 	{
-		putchar (ft_toupper(str[i]));
+		ft_putchar(ft_toupper(str[i]));
 		i++;
 	}
 	return (0);

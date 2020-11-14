@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/08 18:30:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/08 19:05:44 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/14 14:10:54 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*str;
+	char	*ptr;
 	size_t	i;
 
-	if (!(str = ft_strdup(s)))
+	if (!s || !f)
+		return (NULL);
+	ptr = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!ptr)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		str[i] = (*f)(i, str[i]);
+		ptr[i] = (*f)(i, s[i]);
 		i++;
 	}
-	return (str);
+	ptr[i] = '\0';
+	return (ptr);
 }
