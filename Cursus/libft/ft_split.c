@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/14 14:59:40 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/14 18:09:26 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/15 09:15:26 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/15 10:50:02 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	size_t		ft_countwords(char *str, char c)
 {
 	size_t	i;
-	size_t	nb;
+	size_t	nbw;
 	size_t	len;
 
 	i = 0;
@@ -24,52 +24,69 @@ static	size_t		ft_countwords(char *str, char c)
 		i++;
 	if (i == len)
 		return (0);
-	nb = 0;
+	nbw = 0;
 	while (str[i])
 	{
 		if (str[i] == c && str[i + 1] != c && i != len - 1)
-			nb++;
+			nbw++;
 		i++;
 	}
-	return (nb + 1);
+	return (nbw + 1);
 }
 
-static size_t		ft_wordlen(char const *s, char c)
+static	char		*ft_splitter(char *str, char c)
 {
-	size_t		len;
+	size_t	i;
+	size_t	start;
+	size_t	end;
+	char	*ptr;
 
-	len = 0;
-	while (*s != c && *s)
+	i = 0;
+	while (str[i] == c)
+		i++;
+	start = i;
+	while (str[i] != c && str[i])
+		i++;
+	end = i;
+	ptr = ft_substr(str, start, end - start);
+	return (ptr);
+}
+
+static	void		*ft_free(char **ret, size_t i)
+{
+	while (i > 0)
 	{
-		len++;
-		s++;
+		i--;
+		ret[i] = NULL;
+		free(ret[i]);
 	}
-	return (len);
+	free(ret);
+	return (NULL);
 }
 
 char				**ft_split(char const *s, char c)
 {
-	char		**ret;
-	char		*ptr;
-	size_t		nbw;
-	size_t		i;
+	char	*ptr;
+	char	**ret;
+	size_t	nb_words;
+	size_t	i;
 
 	ptr = (char *)s;
 	if (!ptr)
 		return (NULL);
-	nbw = ft_countwords(ptr, c);
-	ret = (char **)malloc((nbw + 1) * sizeof(char *));
+	nb_words = ft_countwords(ptr, c);
+	ret = (char **)malloc((nb_words + 1) * sizeof(char *));
 	if (!ret)
 		return (NULL);
 	i = 0;
-	while (nbw > i)
+	while (nb_words > i)
 	{
-		while (*ptr == c && *ptr)
-			ptr++;
-		ret[i] = ft_substr(s, 0, ft_wordlen(s, c));
+		ret[i] = ft_splitter(ptr, c);
 		if (!ret[i])
-			return (NULL);
-		s = s + ft_wordlen(s, c);
+			return (ft_free(ret, i));
+		while (*ptr == c)
+			ptr++;
+		ptr = ft_memchr(ptr, (int)c, ft_strlen(ptr));
 		i++;
 	}
 	ret[i] = NULL;
