@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   libftprintf.h                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/16 11:16:37 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/20 17:39:04 by abeznik       ########   odam.nl         */
+/*   Created: 2020/11/20 18:43:17 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/11/20 19:04:34 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-int   main(void)
-{
-	char	*line;
-	int		fd;
-	int		line_nb;
+# include "./libft/libft.h"
 
-	fd = open("test4.txt", O_RDONLY);
-	line_nb = 1;
-	while (get_next_line(fd, &line) != 0)
-	{
-		printf("Line #%d:	%s\n", line_nb, line);
-		line_nb++;
-	}
-	return (0);
-}
+int     ft_printf(const char *str, ...);
+
+#endif
